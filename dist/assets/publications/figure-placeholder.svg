@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240">
+  <rect width="360" height="240" fill="#f8fafc"/>
+  <g fill="none" stroke="#b6c9d9" stroke-width="2"><rect x="30" y="83" width="70" height="56" rx="5"/><rect x="144" y="69" width="70" height="84" rx="5"/><rect x="258" y="83" width="70" height="56" rx="5"/><path d="M101 111h40m-8-6 8 6-8 6m82-6h40m-8-6 8 6-8 6"/></g>
+  <g fill="#8aa8bf"><circle cx="65" cy="111" r="9"/><rect x="162" y="91" width="34" height="6" rx="3"/><rect x="162" y="108" width="34" height="6" rx="3"/><rect x="162" y="125" width="24" height="6" rx="3"/><path d="m279 111 9 9 19-20" fill="none" stroke="#8aa8bf" stroke-width="4" stroke-linecap="round"/></g>
+  <text x="180" y="194" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" letter-spacing="2" fill="#627d93">YOUR RESEARCH FIGURE</text>
+</svg>

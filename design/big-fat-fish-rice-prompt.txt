@@ -1,0 +1,15 @@
+Use case: illustration-story.
+Asset type: a production animation sprite sheet that will be cut into eight frames and encoded into a looping GIF for a small academic homepage desk pet named Big Fat Fish.
+Input image 1 is the user's reference image. Use it to match the recognizable blue-haired whale-girl maid character, her rounded chibi face, large dark-blue eyes, white frilled headband and blue maid outfit, and especially the puffed cheeks and eating plain white rice. It is a reference, not a scene background to copy.
+Create ONE clean transparent-background sprite sheet: EXACTLY 4 columns by 2 rows, 8 equal-size rectangular cells, read left to right then next row. No visible grid or labels. All eight cells must show the SAME character at the SAME scale, camera angle, lighting, position, hairstyle and outfit, seated and framed from head to waist, holding a generous white porcelain bowl of PLAIN WHITE RICE close to her chest. Preserve the bowl and full hair silhouette within each cell with clear transparent padding. No table, scenery, person in the background, text, logo, or watermark. Real alpha transparency; do not draw a checkerboard.
+Style: polished softly shaded anime chibi illustration close to the reference, cute rounded cheeks, deep periwinkle-blue hair with little whale-fin hair ornaments, delicately shaded white frills, two normal hands and one pair of chopsticks; appetizing clearly recognizable WHITE RICE, no toppings.
+Eight coherent keyframes of one eating cycle:
+1. cheeks slightly puffed, eyes open, right hand's chopsticks lowered into bowl.
+2. chopsticks lift a small clump of white rice from bowl, eyes follow it.
+3. rice approaches mouth, mouth opens a little.
+4. rice enters mouth, chopsticks at lips.
+5. mouth closed, very cute full puffed cheeks, chopsticks withdraw.
+6. cheeks gently chew, eyes blink closed contentedly.
+7. eyes open, slight swallowing motion, chopsticks lower.
+8. returns very close to pose 1 so the animation loops smoothly.
+Keep head, torso, bowl and left hand almost stationary; changes are primarily right forearm, chopsticks, rice at the tips, mouth and cheeks. Preserve character identity precisely between frames. Separate silhouettes across cells. Target a wide 2:1 canvas if possible; exact 4-by-2 layout is essential.

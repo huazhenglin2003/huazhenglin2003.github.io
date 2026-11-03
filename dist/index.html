@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personal academic homepage: news, publications, and honors.">
+  <meta name="theme-color" content="#f6f5f1">
+  <title>Your Name | Academic Homepage</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="theme.css?v=20261103-authors">
+  <link rel="stylesheet" href="cursor-companion.css">
+  <link rel="stylesheet" href="desk-pet.css?v=20261103-rice-gif">
+  <script src="site-data.js?v=20261103-authors" defer></script>
+  <script src="asset-previews.js" defer></script>
+  <script src="app.js?v=20261103-authors" defer></script>
+  <script src="cursor-companion.js" defer></script>
+  <script src="desk-pet.js?v=20261103-rice-gif" defer></script>
+</head>
+<body>
+  <div class="site-background" aria-hidden="true"><img class="crest-watermark" src="assets/crest-of-courage.svg" alt="" width="1000" height="1000"></div>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <div class="site-layout">
+    <aside class="sidebar">
+      <a class="sidebar-identity" href="#profile"><span id="nav-name">Your Name</span><span class="sidebar-caption" data-i18n="homepage">Academic homepage</span></a>
+      <nav class="section-nav" aria-label="Main navigation" data-i18n-aria="navigation">
+        <a href="#profile" class="is-active" aria-current="location"><span data-i18n="about">About</span></a>
+        <a href="#news"><span data-i18n="news">News</span></a>
+        <a href="#publications"><span data-i18n="publications">Publications</span></a>
+        <a href="#honors"><span data-i18n="honors">Honors</span></a>
+        <a href="#awards"><span data-i18n="awards">Awards</span></a>
+        <a href="#service"><span data-i18n="service">Service</span></a>
+      </nav>
+    </aside>
+
+    <div class="content-column">
+      <header class="site-header">
+        <a class="header-home" href="#profile"><img src="assets/crest-of-courage.svg" alt="" aria-hidden="true" width="21" height="21"><span data-i18n="homepage">Academic homepage</span></a>
+        <div class="header-controls">
+          <div class="language-switch" role="group" aria-label="Choose language" data-i18n-aria="chooseLanguage">
+            <button type="button" data-language="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
+            <button type="button" data-language="zh" lang="zh-CN" aria-label="中文" aria-pressed="false">中文</button>
+          </div>
+          <span class="control-divider" aria-hidden="true"></span>
+          <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.7 13a9 9 0 0 1-9.7-9.7A9 9 0 1 0 20.7 13Z"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <main id="main">
+        <section class="profile" id="profile" aria-labelledby="profile-name">
+          <div class="portrait" id="profile-portrait"></div>
+          <div class="profile-content">
+            <p class="profile-eyebrow" data-i18n="welcome">HELLO, I'M</p>
+            <h1><span id="profile-name">Your Name</span><span class="alternate-name" id="profile-alternate-name"></span></h1>
+            <p class="profile-role" id="profile-role"></p>
+            <div class="profile-meta" id="profile-meta"></div>
+            <div class="profile-links" id="profile-links"></div>
+          </div>
+          <div class="profile-bio">
+            <p id="profile-bio"></p>
+            <ul class="research-interests" id="research-interests" aria-label="Research interests" data-i18n-aria="interests"></ul>
+          </div>
+        </section>
+
+        <section class="section news-section" id="news" aria-labelledby="news-title">
+          <div class="section-heading">
+            <h2 id="news-title"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg><span data-i18n="news">News</span></h2>
+            <span class="section-note" data-i18n="latestUpdates">Latest updates</span>
+          </div>
+          <div class="news-list" id="news-list"></div>
+        </section>
+
+        <section class="section" id="publications" aria-labelledby="publications-title">
+          <div class="section-heading publications-heading">
+            <div class="publication-heading-title">
+              <h2 id="publications-title"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v16M3 4h4a7 7 0 0 1 5 2 7 7 0 0 1 5-2h4v15h-4a7 7 0 0 0-5 2 7 7 0 0 0-5-2H3V4Z"/></svg><span data-i18n="publications">Publications</span></h2>
+              <span id="publications-scholar"></span>
+            </div>
+            <div class="publication-filters" role="group" aria-label="Filter publications" data-i18n-aria="filterPublications">
+              <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true" data-i18n="all">All</button>
+              <button class="filter-button" type="button" data-filter="accepted" aria-pressed="false" data-i18n="accepted">Accepted</button>
+              <button class="filter-button" type="button" data-filter="preprint" aria-pressed="false" data-i18n="preprints">Preprints</button>
+            </div>
+          </div>
+          <p class="section-description" id="publication-note"></p>
+          <div class="publication-list" id="publication-list" aria-live="polite" aria-atomic="true"></div>
+        </section>
+
+        <section class="section honors-section" id="honors" aria-labelledby="honors-title">
+          <div class="section-heading">
+            <h2 id="honors-title"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="m8 12-2 9 6-3 6 3-2-9"/><path d="m10 8 1.5 1.5L14 7"/></svg><span data-i18n="honors">Honors</span></h2>
+            <span class="section-note" data-i18n="distinctions">Distinctions</span>
+          </div>
+          <div class="recognition-list" id="honor-list"></div>
+        </section>
+
+        <section class="section awards-section" id="awards" aria-labelledby="awards-title">
+          <div class="section-heading">
+            <h2 id="awards-title"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v5a4 4 0 0 1-8 0V3Zm0 2H4v2a4 4 0 0 0 4 4m8-6h4v2a4 4 0 0 1-4 4M12 12v6m-4 3v-3h8v3M6 21h12"/></svg><span data-i18n="awards">Awards</span></h2>
+            <span class="section-note" data-i18n="recognition">Recognition</span>
+          </div>
+          <div class="recognition-list" id="award-list"></div>
+        </section>
+
+        <section class="section service-section" id="service" aria-labelledby="service-title">
+          <div class="section-heading">
+            <h2 id="service-title"><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H5v18h14V8l-5-5Zm0 0v5h5M8 13l2 2 5-5M8 18h7"/></svg><span data-i18n="service">Service</span></h2>
+            <span class="section-note" data-i18n="peerReview">Peer review &amp; community</span>
+          </div>
+          <div class="service-grid" id="service-list"></div>
+        </section>
+        <noscript><p>Enable JavaScript to view this homepage. / 请启用 JavaScript 查看主页内容。</p></noscript>
+      </main>
+
+      <footer class="site-footer">
+        <div><span id="copyright"></span><span class="footer-updated" id="last-updated"></span></div>
+        <a href="#profile"><span data-i18n="backToTop">Back to top</span><span aria-hidden="true"> ↑</span></a>
+      </footer>
+    </div>
+  </div>
+  <div class="photo-viewer" id="photo-viewer" role="dialog" aria-modal="true" aria-labelledby="photo-viewer-title" hidden>
+    <div class="photo-viewer-panel">
+      <div class="photo-viewer-header">
+        <h2 id="photo-viewer-title">Profile photo</h2>
+        <button class="photo-viewer-close" type="button" aria-label="Close photo">×</button>
+      </div>
+      <img class="photo-viewer-image" alt="" decoding="async">
+      <p class="photo-viewer-hint">Esc or click outside to close</p>
+    </div>
+  </div>
+  <div class="cursor-companion" id="cursor-companion" aria-hidden="true" hidden>
+    <div class="koromon-trails"></div>
+    <div class="koromon-follower">
+      <span class="koromon-shadow"></span>
+      <div class="koromon-hop">
+        <div class="koromon-facing">
+          <span class="koromon-ear koromon-ear-left"><img src="assets/koromon-idle.png" alt="" width="128" height="128" draggable="false"></span>
+          <span class="koromon-ear koromon-ear-right"><img src="assets/koromon-idle.png" alt="" width="128" height="128" draggable="false"></span>
+          <span class="koromon-body">
+            <img class="koromon-idle" src="assets/koromon-idle.png" alt="" width="128" height="128" draggable="false">
+            <img class="koromon-blink" src="assets/koromon-blink.png" alt="" width="128" height="128" draggable="false">
+          </span>
+        </div>
+        <img class="koromon-sleep" src="assets/koromon-sleep.png" data-animated-src="assets/koromon-sleep.gif" alt="" width="160" height="160" draggable="false">
+      </div>
+    </div>
+  </div>
+  <aside class="desk-pet" id="desk-pet" aria-label="Big Fat Fish desk companion" hidden>
+    <div class="pet-bubble" id="pet-bubble" role="status" aria-live="polite" aria-atomic="true" hidden>
+      <button class="pet-bubble-close" type="button" aria-label="Close message">×</button>
+      <span class="pet-bubble-name">Big Fat Fish</span>
+      <p class="pet-message"></p>
+      <p class="pet-context" hidden></p>
+    </div>
+    <button class="pet-character" type="button" aria-label="Poke Big Fat Fish. Drag to move.">
+      <span class="pet-shadow" aria-hidden="true"></span>
+      <img class="pet-frame is-active" data-expression="front" src="assets/deepseek/front.png" alt="" width="287" height="340" draggable="false">
+      <img class="pet-frame" data-expression="happy" src="assets/deepseek/happy.png" alt="" width="292" height="340" draggable="false">
+      <img class="pet-frame" data-expression="shy" src="assets/deepseek/shy.png" alt="" width="288" height="340" draggable="false">
+      <img class="pet-frame" data-expression="wry" src="assets/deepseek/wry.png" alt="" width="347" height="340" draggable="false">
+      <img class="pet-meal" src="assets/deepseek/eating-rice.png" data-animated-src="assets/deepseek/eating-rice.gif" alt="" width="192" height="216" draggable="false">
+    </button>
+  </aside>
+</body>
+</html>

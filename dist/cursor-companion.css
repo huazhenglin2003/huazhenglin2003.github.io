@@ -1,0 +1,28 @@
+/* This is a pointer-transparent companion. The browser always draws its own cursor. */
+.cursor-companion { position: fixed; inset: 0; z-index: 10000; overflow: hidden; pointer-events: none; user-select: none; contain: layout style paint; }
+.cursor-companion *, .cursor-companion *::before, .cursor-companion *::after { pointer-events: none; }
+.koromon-follower { position: absolute; left: 0; top: 0; width: var(--companion-size, 52px); height: var(--companion-size, 52px); will-change: transform; }
+.koromon-hop { position: absolute; inset: 0; transform-origin: 50% 83%; will-change: transform; }
+.koromon-hop img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.koromon-facing, .koromon-ear, .koromon-body { position: absolute; inset: 0; }
+.koromon-facing { transform-origin: 50% 66%; will-change: transform; }
+.koromon-ear { will-change: transform; }
+.koromon-ear-left { transform-origin: 43% 43%; }
+.koromon-ear-right { transform-origin: 57% 43%; }
+.koromon-ear-left img { clip-path: polygon(0 0, 50% 0, 46% 35%, 44% 40%, 40% 43%, 34% 42%, 25% 45%, 0 58%); }
+.koromon-ear-right img { clip-path: polygon(50% 0, 100% 0, 100% 58%, 75% 45%, 66% 42%, 60% 43%, 56% 40%, 54% 35%); }
+.koromon-body { clip-path: polygon(22% 48%, 34% 43%, 43% 37%, 57% 37%, 66% 43%, 78% 48%, 86% 88%, 14% 88%); }
+.koromon-blink { opacity: 0; }
+.cursor-companion.is-blinking .koromon-idle { opacity: 0; }
+.cursor-companion.is-blinking .koromon-blink { opacity: 1; }
+.koromon-sleep { display: none; }
+.cursor-companion.is-sleeping .koromon-facing { visibility: hidden; }
+.cursor-companion.is-sleeping .koromon-sleep { display: block; }
+.koromon-shadow { position: absolute; bottom: 10%; left: 29%; width: 42%; height: 5%; border-radius: 50%; background: #93676b; opacity: .13; filter: blur(1.5px); transform-origin: center; }
+.koromon-trails { position: absolute; inset: 0; }
+.koromon-spark { position: absolute; top: 0; left: 0; width: 6px; height: 4px; border-radius: 50%; background: #d1a268; box-shadow: 0 0 6px rgba(209, 162, 104, .25); opacity: 0; will-change: transform, opacity; }
+.koromon-spark:nth-child(even) { background: #d48ba5; box-shadow: 0 0 6px rgba(212, 139, 165, .23); }
+.cursor-companion.is-reduced-motion .koromon-spark { display: none; }
+.cursor-companion.is-reduced-motion .koromon-hop img { transition: none; }
+@media (prefers-reduced-motion: reduce) { .koromon-hop img { transition: none; } }
+@media print { .cursor-companion { display: none !important; } }
