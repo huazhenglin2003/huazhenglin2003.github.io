@@ -4,6 +4,7 @@
   // VS Code previews rewrite script URLs, but not URLs rendered by JavaScript.
   // Capture the script location now so later renders use the same resource directory.
   const resourceBase = document.currentScript?.src || document.baseURI;
+  const uiScale = parseFloat(getComputedStyle(document.documentElement).fontSize) / 16 || 1;
   const resourceUrl = (url) => {
     if (!url || /^(?:[a-z][a-z0-9+.-]*:|\/\/|#|\?)/i.test(url)) return url;
     try { return new URL(url, resourceBase).href; } catch { return url; }
@@ -324,7 +325,7 @@
 
   const updateActiveNavigation = () => {
     const sections = Array.from(document.querySelectorAll('main > section')).filter((section) => !section.hidden);
-    const offset = window.innerWidth <= 960 ? document.querySelector('.sidebar').offsetHeight + 32 : 80;
+    const offset = window.innerWidth <= 960 * uiScale ? document.querySelector('.sidebar').offsetHeight + 32 * uiScale : 80 * uiScale;
     let active = sections[0];
     for (const section of sections) {
       if (section.getBoundingClientRect().top <= offset) active = section;

@@ -3,6 +3,7 @@
 
   const settings = window.SITE_DATA?.settings || {};
   const config = settings.deskPet || {};
+  const uiScale = parseFloat(getComputedStyle(document.documentElement).fontSize) / 16 || 1;
   const root = document.querySelector('#desk-pet');
   if (!root || config.enabled === false) return;
   const bubble = root.querySelector('.pet-bubble');
@@ -121,12 +122,12 @@
     if (bubble.hidden) return;
     const rect = root.getBoundingClientRect();
     root.classList.toggle('bubble-left', rect.left + rect.width / 2 < window.innerWidth / 2);
-    root.classList.toggle('bubble-below', rect.top < bubble.offsetHeight + 20 && window.innerHeight - rect.bottom > bubble.offsetHeight + 20);
-    const preferred = root.classList.contains('bubble-left') ? rect.left + 4 : rect.right - 8 - bubble.offsetWidth;
-    const screenLeft = Math.max(12, Math.min(window.innerWidth - bubble.offsetWidth - 12, preferred));
+    root.classList.toggle('bubble-below', rect.top < bubble.offsetHeight + 20 * uiScale && window.innerHeight - rect.bottom > bubble.offsetHeight + 20 * uiScale);
+    const preferred = root.classList.contains('bubble-left') ? rect.left + 4 * uiScale : rect.right - 8 * uiScale - bubble.offsetWidth;
+    const screenLeft = Math.max(12 * uiScale, Math.min(window.innerWidth - bubble.offsetWidth - 12 * uiScale, preferred));
     bubble.style.left = `${screenLeft - rect.left}px`;
     bubble.style.right = 'auto';
-    bubble.style.setProperty('--bubble-tail-x', `${Math.max(18, Math.min(bubble.offsetWidth - 24, rect.left + rect.width / 2 - screenLeft))}px`);
+    bubble.style.setProperty('--bubble-tail-x', `${Math.max(18 * uiScale, Math.min(bubble.offsetWidth - 24 * uiScale, rect.left + rect.width / 2 - screenLeft))}px`);
   };
   const labels = () => {
     const zh = language() === 'zh';
@@ -185,8 +186,8 @@
   };
   const setPosition = (x, y) => {
     const rect = root.getBoundingClientRect();
-    root.style.left = `${Math.max(8, Math.min(window.innerWidth - rect.width - 8, x))}px`;
-    root.style.top = `${Math.max(8, Math.min(window.innerHeight - rect.height - 8, y))}px`;
+    root.style.left = `${Math.max(8 * uiScale, Math.min(window.innerWidth - rect.width - 8 * uiScale, x))}px`;
+    root.style.top = `${Math.max(8 * uiScale, Math.min(window.innerHeight - rect.height - 8 * uiScale, y))}px`;
     root.style.right = 'auto';
     root.style.bottom = 'auto';
     positionBubble();
@@ -219,7 +220,7 @@
     if (!drag || event.pointerId !== drag.id) return;
     const dx = event.clientX - drag.x;
     const dy = event.clientY - drag.y;
-    if (!drag.moved && Math.hypot(dx, dy) < 6) return;
+    if (!drag.moved && Math.hypot(dx, dy) < 6 * uiScale) return;
     drag.moved = true;
     root.classList.add('is-dragging');
     setPosition(drag.left + dx, drag.top + dy);
@@ -239,7 +240,7 @@
     if (!delta) return;
     event.preventDefault();
     const rect = root.getBoundingClientRect();
-    setPosition(rect.left + delta[0], rect.top + delta[1]);
+    setPosition(rect.left + delta[0] * uiScale, rect.top + delta[1] * uiScale);
   });
   ['pointermove', 'pointerdown', 'click', 'scroll', 'keydown', 'wheel'].forEach((name) => window.addEventListener(name, activity, { passive: true }));
   const pause = () => {

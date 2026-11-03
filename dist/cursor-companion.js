@@ -2,6 +2,7 @@
   'use strict';
 
   const appearance = window.SITE_DATA?.settings?.appearance || {};
+  const uiScale = parseFloat(getComputedStyle(document.documentElement).fontSize) / 16 || 1;
   const layer = document.querySelector('#cursor-companion');
   if (!layer || appearance.customCursor === false || typeof window.matchMedia !== 'function') return;
 
@@ -16,11 +17,12 @@
   const idleFrame = layer.querySelector('.koromon-idle');
   const blinkFrame = layer.querySelector('.koromon-blink');
   const sleepFrame = layer.querySelector('.koromon-sleep');
-  const sleepStill = sleepFrame.getAttribute('src');
-  const sleepAnimation = sleepFrame.dataset.animatedSrc;
+  const resourceBase = document.currentScript?.src || document.baseURI;
+  const sleepStill = sleepFrame.src;
+  const sleepAnimation = new URL(sleepFrame.dataset.animatedSrc, resourceBase).href;
   const sleepAfter = Number.isFinite(appearance.cursorSleepAfter) ? Math.max(1000, Math.min(60000, appearance.cursorSleepAfter)) : 3000;
   const trailLayer = layer.querySelector('.koromon-trails');
-  const size = Number.isFinite(appearance.cursorSize) ? Math.max(36, Math.min(72, appearance.cursorSize)) : 52;
+  const size = (Number.isFinite(appearance.cursorSize) ? Math.max(36, Math.min(72, appearance.cursorSize)) : 52) * uiScale;
   layer.style.setProperty('--companion-size', `${size}px`);
 
   const particles = Array.from({ length: 20 }, () => {
@@ -48,7 +50,7 @@
   });
   const sleepImage = (animated) => {
     const next = animated && state.canAnimateSleep ? sleepAnimation : sleepStill;
-    if (sleepFrame.getAttribute('src') !== next) sleepFrame.src = next;
+    if (sleepFrame.src !== next) sleepFrame.src = next;
   };
   const resetPose = () => {
     state.yaw = state.leftEar = state.rightEar = 0;
@@ -114,10 +116,10 @@
   };
   const setTarget = (x, y) => {
     // Stay to the bottom right until an edge needs the companion to tuck inward.
-    const left = x + size + 22 > window.innerWidth ? x - size - 14 : x + 14;
-    const top = y + size + 24 > window.innerHeight ? y - size - 12 : y + 16;
-    state.targetX = Math.max(5, Math.min(window.innerWidth - size - 5, left));
-    state.targetY = Math.max(5, Math.min(window.innerHeight - size - 5, top));
+    const left = x + size + 22 * uiScale > window.innerWidth ? x - size - 14 * uiScale : x + 14 * uiScale;
+    const top = y + size + 24 * uiScale > window.innerHeight ? y - size - 12 * uiScale : y + 16 * uiScale;
+    state.targetX = Math.max(5 * uiScale, Math.min(window.innerWidth - size - 5 * uiScale, left));
+    state.targetY = Math.max(5 * uiScale, Math.min(window.innerHeight - size - 5 * uiScale, top));
   };
   const beginHop = (now) => {
     state.hopping = true;
@@ -153,11 +155,11 @@
     particle.born = now;
     particle.x = state.x + size * .48 - state.directionX * size * .17;
     particle.y = state.y + size * .72 - state.directionY * size * .12;
-    particle.dx = -state.directionX * 13;
-    particle.dy = -state.directionY * 10 + 3;
+    particle.dx = (-state.directionX * 13) * uiScale;
+    particle.dy = (-state.directionY * 10 + 3) * uiScale;
     particle.angle = Math.atan2(state.directionY, state.directionX) * 180 / Math.PI;
-    particle.node.style.width = `${4.5 + state.hopPace * 3}px`;
-    particle.node.style.height = `${3 + state.hopPace * 1.5}px`;
+    particle.node.style.width = `${(4.5 + state.hopPace * 3) * uiScale}px`;
+    particle.node.style.height = `${(3 + state.hopPace * 1.5) * uiScale}px`;
     state.lastTrail = now;
   };
 
@@ -183,9 +185,9 @@
     if (state.hopping && !reduced) {
       const progress = Math.min(1, (now - state.hopStart) / state.hopDuration);
       const arc = Math.sin(progress * Math.PI);
-      lift = arc * (5 + state.hopPace * 6);
-      hopX = arc * state.hopX * 4;
-      hopY = arc * state.hopY * 3 - lift;
+      lift = arc * (5 + state.hopPace * 6) * uiScale;
+      hopX = arc * state.hopX * 4 * uiScale;
+      hopY = arc * state.hopY * 3 * uiScale - lift;
       tilt = arc * state.hopX * 10;
       squash = arc * .055;
       const strength = .6 + state.hopPace * .4;
@@ -201,12 +203,12 @@
     state.yaw += (yaw - state.yaw) * spring;
     state.leftEar += (earLeft - state.leftEar) * spring;
     state.rightEar += (earRight - state.rightEar) * spring;
-    facing.style.transform = `perspective(180px) rotateY(${state.yaw}deg) skewY(${-state.yaw * .07}deg)`;
+    facing.style.transform = `perspective(${180 * uiScale}px) rotateY(${state.yaw}deg) skewY(${-state.yaw * .07}deg)`;
     leftEar.style.transform = `rotate(${state.leftEar}deg)`;
     rightEar.style.transform = `rotate(${state.rightEar}deg)`;
     layer.dataset.facing = state.yaw > 3 ? 'right' : state.yaw < -3 ? 'left' : 'front';
-    shadow.style.transform = `scale(${1 - lift * .035})`;
-    shadow.style.opacity = String(.13 - lift * .005);
+    shadow.style.transform = `scale(${1 - lift / uiScale * .035})`;
+    shadow.style.opacity = String(.13 - lift / uiScale * .005);
 
     const trailsAlive = drawParticles(now);
     const distance = Math.hypot(state.targetX - state.x, state.targetY - state.y);
@@ -240,7 +242,7 @@
     if (distance > .5) {
       state.directionX = dx / distance;
       state.directionY = dy / distance;
-      state.pace = Math.min(1, distance / elapsed / 1.3);
+      state.pace = Math.min(1, distance / uiScale / elapsed / 1.3);
       layer.dataset.direction = Math.abs(dx) >= Math.abs(dy) ? (dx > 0 ? 'right' : 'left') : (dy > 0 ? 'down' : 'up');
     }
     state.pointerX = event.clientX;
@@ -287,7 +289,7 @@
 
   idleFrame.addEventListener('error', () => { state.available = false; stop(); }, { once: true });
   sleepFrame.addEventListener('error', () => {
-    if (sleepFrame.getAttribute('src') === sleepAnimation) {
+    if (sleepFrame.src === sleepAnimation) {
       state.canAnimateSleep = false;
       sleepImage(false);
     } else {
