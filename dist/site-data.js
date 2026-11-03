@@ -48,8 +48,8 @@ window.SITE_DATA = {
     image: "assets/myphoto.jpeg", // 将照片放入 dist/assets/，这里填写 "assets/profile.jpg"。
     imageAlt: { en: "Profile photo", zh: "个人照片" },
     bio: {
-      en: "I am currently an M.S. student in Artificial Intelligence at Southeast University, under the supervision of Prof. Yuheng Jia. Before that, I obtained my B.Eng. degree from Jiangnan University in 2025. My research focuses on Multimodal Large Language Models (MLLMs) and Trustworthy Machine Learning, including hallucination mitigation and model interpretability. Welcome researchers from all fields to exchange ideas and engage in discussions with me, so that we can learn and grow together.",
-      zh: "我目前是东南大学人工智能专业的硕士研究生，师从贾育衡教授。在此之前，我于 2025 年毕业于江南大学，获得工学学士学位。我的研究方向主要包括多模态大语言模型（MLLMs）和可信机器学习，涵盖幻觉缓解和模型可解释性等方面。欢迎来自各个领域的研究者与我交流思想、探讨问题，共同学习与成长。"
+      en: "I am currently an M.S. student in Artificial Intelligence at Southeast University, under the supervision of Prof. Yuheng Jia. Before that, I obtained my B.Eng. degree from Jiangnan University in 2025. My research focuses on Multimodal Large Language Models (MLLMs) and Trustworthy Machine Learning, including hallucination mitigation and model interpretability. Welcome researchers from all fields to exchange ideas and engage in discussions with me, so that we can learn and grow together.🚀",
+      zh: "我目前是东南大学人工智能专业的硕士研究生，师从贾育衡教授。在此之前，我于 2025 年毕业于江南大学，获得工学学士学位。我的研究方向主要包括多模态大语言模型（MLLMs）和可信机器学习，涵盖幻觉缓解和模型可解释性等方面。欢迎来自各个领域的研究者与我交流思想、探讨问题，共同学习与成长。🚀"
     },
     advisor: {
       name: { en: "Prof. Yuheng Jia", zh: "贾育衡教授" }, // 与 bio 中的称呼一致，自动将简介中的姓名变成链接。
