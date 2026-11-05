@@ -204,6 +204,14 @@ window.SITE_DATA = {
           },
           url: "https://github.com/huazhenglin2003/VerDA",
           icon: "github"
+        },
+        {
+          label: {
+            en: "Poster",
+            zh: "海报"
+          },
+          url: "assets/posters/neurips2026-poster.pdf",
+          icon: "file"
         }
       ]
     },
@@ -251,6 +259,14 @@ window.SITE_DATA = {
           },
           url: "https://github.com/huazhenglin2003/SSL",
           icon: "github"
+        },
+        {
+          label: {
+            en: "Poster",
+            zh: "海报"
+          },
+          url: "assets/posters/EMNLP 2025_Find-1909.pdf",
+          icon: "file"
         }
       ]
     },

@@ -242,7 +242,6 @@
       const original = safeUrl(paper.image, true);
       const pdf = isPdf(original) ? original : '';
       const image = previewFor(original) || (pdf ? '' : original);
-      if (pdf && !links.some((item) => item.url === pdf)) links.push({ label: 'PDF', url: pdf, icon: 'file' });
       const authors = (paper.authors || []).map((value) => {
         const author = localize(value);
         const plainName = author.replace(/[\s*†‡]+$/g, '');
