@@ -207,6 +207,14 @@ window.SITE_DATA = {
         },
         {
           label: {
+            en: "PDF",
+            zh: "PDF"
+          },
+          url: "assets/publications/papers/verda-NeurIPS2026.pdf",
+          icon: "file"
+        },
+        {
+          label: {
             en: "Poster",
             zh: "海报"
           },
@@ -262,6 +270,14 @@ window.SITE_DATA = {
         },
         {
           label: {
+            en: "PDF",
+            zh: "PDF"
+          },
+          url: "assets/publications/papers/ssl-EMNLP2025findings.pdf",
+          icon: "file"
+        },
+        {
+          label: {
             en: "Poster",
             zh: "海报"
           },
@@ -314,6 +330,14 @@ window.SITE_DATA = {
           },
           url: "https://github.com/ytx-ML/ILVAD",
           icon: "github"
+        },
+        {
+          label: {
+            en: "PDF",
+            zh: "PDF"
+          },
+          url: "assets/publications/papers/ilvad-ICML2026.pdf",
+          icon: "file"
         }
       ]
     },
@@ -363,6 +387,14 @@ window.SITE_DATA = {
           },
           url: "https://github.com/jinghan1he/VHR",
           icon: "github"
+        },
+        {
+          label: {
+            en: "PDF",
+            zh: "PDF"
+          },
+          url: "assets/publications/papers/vhr-ACL2025.pdf",
+          icon: "file"
         }
       ]
     },
@@ -401,6 +433,14 @@ window.SITE_DATA = {
           label: "arXiv",
           url: "https://arxiv.org/abs/2610.12048",
           icon: "link"
+        },
+        {
+          label: {
+            en: "PDF",
+            zh: "PDF"
+          },
+          url: "assets/publications/papers/2610.12048v1.pdf",
+          icon: "file"
         }
       ]
     },
@@ -434,6 +474,14 @@ window.SITE_DATA = {
           label: "arXiv",
           url: "https://arxiv.org/abs/2603.04981",
           icon: "link"
+        },
+        {
+          label: {
+            en: "PDF",
+            zh: "PDF"
+          },
+          url: "assets/publications/papers/2603.04981v1.pdf",
+          icon: "file"
         }
       ]
     },
